@@ -54,6 +54,11 @@ public class Main {
         }
         return isPrime;
     }
+    // gcd
+    static int gcd(int a,int b){
+        if(a%b==0) return b;
+        return gcd(b,a%b);
+    }
 
 
 
@@ -68,7 +73,9 @@ public class Main {
         for(int i=0;i<isPrime.length;i++){
             System.out.println(i+ " "+isPrime[i]);
         }
-        //2. GCD (a,b)=(b,a%b)
+        //2. GCD (a,b)=(b,a%b) HCF
+        System.out.println(gcd(15,27));
+
         //3. Modulo Arithmetics compute: a^b%n
     }
 }

@@ -1,5 +1,7 @@
 package _2math;
 
+import java.util.Arrays;
+
 public class Main {
 
     // 1.Factorial
@@ -37,12 +39,36 @@ public class Main {
         return original == rev;
     }
 
+    //4.prime number
+    public  static  boolean[]  sieveOferatothenes(int n){
+        boolean isPrime[]=new boolean[n+1];
+
+        Arrays.fill(isPrime,true);
+        isPrime[0]=false;
+        isPrime[1]=false;
+        for(int i=2;i*i<=n;i++){
+
+            for(int j=2*i;j<=n;j+=i){
+                isPrime[j]=false;
+            }
+        }
+        return isPrime;
+    }
+
 
 
     public static void main(String[] args) {
         System.out.println(Fact(20));
-
         System.out.println(trailingZeroFact(20));
         System.out.println(Palindrome(121));
+
+        // Major topic
+        //1. Sieve of eratosthenes Prime number
+        boolean[] isPrime= sieveOferatothenes(12);
+        for(int i=0;i<isPrime.length;i++){
+            System.out.println(i+ " "+isPrime[i]);
+        }
+        //2. GCD (a,b)=(b,a%b)
+        //3. Modulo Arithmetics compute: a^b%n
     }
 }

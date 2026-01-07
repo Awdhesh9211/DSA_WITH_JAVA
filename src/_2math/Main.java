@@ -60,6 +60,20 @@ public class Main {
         return gcd(b,a%b);
     }
 
+    //modulo arithmetic
+    //(a+b)%n=(a%n + b%n)%n   same for - *
+    static long fastPower(long a,long b , int n){
+        long res=1;
+        while(b>0) {
+            if ((b & 1) != 0) {
+                res =(a * b % n)%n;
+            }
+            a = (a %n* a%n)%n;
+            b = b >> 1;
+        }
+        return res;
+    }
+
 
 
     public static void main(String[] args) {
@@ -76,6 +90,13 @@ public class Main {
         //2. GCD (a,b)=(b,a%b) HCF
         System.out.println(gcd(15,27));
 
-        //3. Modulo Arithmetics compute: a^b%n
+        //3. Modulo Arithmetics compute: a^b%n   // 6 vid // Q. a raise to b
+        System.out.println(fastPower(3978432,5,1000000007));
+
+        // HW -> learn about
+        // 1. BigInteger
+        // 2. Catalan Numbers
+        // 3. Pigeon hole Principle
+        // 4.Inclusion-Exclusion
     }
 }
